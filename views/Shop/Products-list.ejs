@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include('../partials/nav.ejs')%>
+    <%- include('../partials/head.ejs') %>
+    <link rel="stylesheet" href="/CSS/Product.css">
+
+<body>
+    
+    <main>
+          
+        <% if(prods.length >0) { %>
+
+        <h1>My Products</h1>
+        <p>List of all the products...</p>
+
+        <div class="grid">
+            <!-- {prods.map((product) => {
+                return 
+            })}
+            {product.title} -->
+
+            <% prods.forEach( product=> { %>
+            <article class="card product-item">
+                <header class="card__header">
+                    <h1 class="product__title"> <%= product.title %></h1>
+                </header>
+                <div class="card__image">
+                    <img src="<%= product.imgURL %>"  alt="an img">
+                </div>
+                <div class="card__content">
+                    <h2 class="product__price">$<%= product.Price %></h2>
+                    <p class="product__description"><%= product.Description %></p>
+                </div>
+                <div class="card__actions">
+                    <a href="/product/<%= product._id %>" class="btn"> Details </a>
+                    <% if (isAuthenticated) { %>
+                    <form action="/cart" method="post">
+                       
+                        <button type="submit" class="btn">Add to cart</button>
+                        <input type="hidden" name="productId" value="<%= product._id %>" >
+                    </form>
+                    <% } %>
+                </div>
+            </article>
+            <% }) %>
+        </div>
+
+        <% } else { %> 
+            <h1>No products found ! </h1>
+            <% } %>
+    </main>
+
+
+</body>
+
+</html>

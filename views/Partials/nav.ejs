@@ -1,0 +1,49 @@
+<header class="main-header">
+    <nav class="main-header__nav">
+        <ul class="main-header__item-list">
+            <div class="logo">
+                <a href="/" > 
+                  <img class="logo__img" src="https://www.kindpng.com/picc/m/679-6791998_online-shopping-free-logo-clipart-png-download-online.png" alt="" width="60px" >
+                </a>
+            </div>
+            <li class="main-header__item"><a class="active" href="/">Shop</a></li>
+            <li class="main-header__item" ><a href="/products-list">Products</a></li>
+
+           
+            
+            <% if (isAuthenticated) { %>
+            <li class="main-header__item" ><a href="/cart">Cart</a></li>
+            <li class="main-header__item" ><a href="/orders">Orders</a></li>
+            <%  } else if(isAdmin) { %>
+            
+            
+            <li class="main-header__item"><a href="/admin/addProduct"> Add Product</a></li>
+            <li class="main-header__item"><a href="/admin/Products">Admin Products</a></li>
+            <% } %>
+
+            <!-- <li class="main-header__item" ><a href="/about">Our Story</a></li> -->
+
+        </ul>
+
+        <ul class="main-header__item-list">
+            <% if (!isAuthenticated) { %>
+            <li class="main-header__item">
+                <a href="/login">Login</a>
+            </li>
+            <li class="main-header__item">
+                <a href="/Register">Register</a>
+            </li>
+            <% } else { %>
+            
+            <li class="main-header__item" >
+                <form action="/logout" method="post">
+                    <button class="logout" type="submit">Logout</button>
+                    
+                </form>
+            </li>
+            <% } %>
+
+          
+        </ul>
+    </nav>
+</header>

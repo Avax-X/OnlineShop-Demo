@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include ('../partials/nav.ejs') %>
+    <%- include ('../partials/head.ejs') %>
+
+
+<body>
+
+    <div class="centered">
+    <hr>
+    <div ><%= product.title %></div>
+    <img src="<%= product.imgURL %>"  alt="an img">
+    <h2 class="product__price">$<%= product.Price %></h2>
+    <p class="product__description"><%= product.Description %></p>
+    <% if (isAuthenticated) { %>
+     <%- include('../partials/add-to-cart.ejs') %>
+     <% } %>
+    </div>
+</body>
+</html>
+

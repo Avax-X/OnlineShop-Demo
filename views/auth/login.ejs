@@ -1,0 +1,53 @@
+
+
+
+<%- include('../partials/head.ejs') %>
+  <link rel="stylesheet" href="/CSS/forms.css">
+  <link rel="stylesheet" href="/CSS/auth.css">
+  
+</head>
+
+<body>
+    <%- include('../partials/nav.ejs')%>
+    <main>
+        <form class="login-form" action="/login" method="POST">
+         
+            <div class="form-control">
+                <label for="email">E-mail</label>
+                <input type="email" name="email" id="email" >
+            </div>
+
+            <div class="form-control">
+                <label for="password"> Password </label>
+                <input type="password" name="password" id="password" >
+            </div>
+
+           
+            <button class="btn__login" type="submit" id="login-form-submit">Login</button>
+
+        </form>
+    </main>
+    
+
+
+ 
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
